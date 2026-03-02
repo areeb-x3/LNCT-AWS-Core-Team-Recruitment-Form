@@ -160,6 +160,7 @@ function doPost(e) {
     data.otherSkill,
     data.proofLink,
     data.workshop,
+    data.volunteer,
   ]);
 
   return ContentService.createTextOutput(

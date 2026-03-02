@@ -124,6 +124,14 @@ function validatePage(page) {
       g.parentNode.insertBefore(m, g.nextSibling);
       valid = false;
     }
+    if (!document.querySelector('input[name="volunteer"]:checked')) {
+      const g = document.getElementById("volunteerPrompt");
+      const m = document.createElement("div");
+      m.className = "error-msg";
+      m.textContent = "Please select an option";
+      g.parentNode.insertBefore(m, g.nextSibling);
+      valid = false;
+    }
     const ack = document.getElementById("acknowledge");
     if (!ack.checked) {
       const m = document.createElement("div");
@@ -278,6 +286,7 @@ function submitForm() {
     otherSkill: document.getElementById("otherSkill").value,
     proofLink: document.getElementById("proofLink").value,
     workshop: document.querySelector('input[name="workshop"]:checked').value,
+    volunteer: document.querySelector('input[name="volunteer"]:checked').value,
   };
 
   // Disable submit button while sending
