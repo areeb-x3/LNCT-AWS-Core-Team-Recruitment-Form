@@ -127,9 +127,9 @@ Completely free, no server required.
 - Go to [sheets.google.com](https://sheets.google.com) and create a new spreadsheet.
 - Add these headers in **Row 1**:
 
-| A         | B          | C         | D     | E               | F      | G           | H       | I    | J        | K            | L            | M      | N           | O          | P        |
-| --------- | ---------- | --------- | ----- | --------------- | ------ | ----------- | ------- | ---- | -------- | ------------ | ------------ | ------ | ----------- | ---------- | -------- |
-| Timestamp | First Name | Last Name | Gmail | Whatsapp Number | Branch | Branch Name | Section | Year | Why Join | Improvements | Expectations | Skills | Other Skill | Proof Link | Workshop |
+| A         | B          | C         | D     | E               | F      | G           | H       | I              | J       | K    | L        | M            | N            | O      | P           | Q          | R        |
+| --------- | ---------- | --------- | ----- | --------------- | ------ | ----------- | ------- | -------------- | ------- | -----| -------- | ------------ | ------------ | ------ | ----------- | ---------- | ---------|
+| Timestamp | First Name | Last Name | Gmail | Whatsapp Number | Branch | Branch Name | College | Enrollment No. | Section | Year | Why Join | Improvements | Expectations | Skills | Other Skill | Proof Link | Workshop |
 
 ### 3b. Add the Apps Script
 
@@ -149,6 +149,8 @@ function doPost(e) {
     data.phone,
     data.branch,
     data.branchName,
+    data.college,
+    data.enrollment,
     data.section,
     data.year,
     data.whyJoin,

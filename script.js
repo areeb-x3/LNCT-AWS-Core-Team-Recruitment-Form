@@ -57,6 +57,8 @@ function validatePage(page) {
       { id: "gmail", msg: "Gmail is required" },
       { id: "phone", msg: "Phone number is required" },
       { id: "branch", msg: "Please select a branch" },
+      { id: "college", msg: "Please select a college" },
+      { id: "enrollment", msg: "Enrollment is required" },
       { id: "section", msg: "Section is required" },
       { id: "year", msg: "Please select a year" },
     ].forEach((f) => {
@@ -249,7 +251,7 @@ function launchConfetti() {
 
 /* ===== SUBMIT ===== */
 // Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SHEET_URL = "URL";
+const GOOGLE_SHEET_URL = "";
 
 function submitForm() {
   if (!validatePage(4)) return;
@@ -263,6 +265,8 @@ function submitForm() {
     branchName: document.getElementById("branch").value === "Other"
       ? document.getElementById("otherBranch").value
       : "",
+    college: document.getElementById("college").value,
+    enrollment: document.getElementById("enrollment").value,
     section: document.getElementById("section").value,
     year: document.getElementById("year").value,
     whyJoin: document.getElementById("whyJoin").value,
