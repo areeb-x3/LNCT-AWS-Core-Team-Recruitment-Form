@@ -66,6 +66,14 @@ function validatePage(page) {
         valid = false;
       }
     });
+    const branchVal = document.getElementById("branch").value;
+    if (branchVal === "Other") {
+      const otherBranch = document.getElementById("otherBranch");
+      if (!otherBranch.value.trim()) {
+        showError(otherBranch, "Please enter your branch name");
+        valid = false;
+      }
+    }
     const gmail = document.getElementById("gmail");
     if (gmail.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(gmail.value)) {
       if (!gmail.classList.contains("error")) {
@@ -134,6 +142,20 @@ function nextPage(c) {
 function prevPage(c) {
   currentPage = c - 1;
   showPage(currentPage);
+}
+
+function initBranchToggle() {
+  const branchSelect = document.getElementById('branch');
+  const otherBranchField = document.getElementById('otherBranch').closest('.field');
+
+  branchSelect.addEventListener('change', function () {
+    if (this.value === 'Other') {
+      otherBranchField.classList.remove('hidden');
+    } else {
+      otherBranchField.classList.add('hidden');
+      document.getElementById('otherBranch').value = '';
+    }
+  });
 }
 
 /* ===== CONFETTI ENGINE ===== */
@@ -227,7 +249,7 @@ function launchConfetti() {
 
 /* ===== SUBMIT ===== */
 // Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SHEET_URL = "YOUR_GOOGLE_SHEET_URL";
+const GOOGLE_SHEET_URL = "URL";
 
 function submitForm() {
   if (!validatePage(4)) return;
@@ -238,6 +260,9 @@ function submitForm() {
     gmail: document.getElementById("gmail").value,
     phone: document.getElementById("phone").value,
     branch: document.getElementById("branch").value,
+    branchName: document.getElementById("branch").value === "Other"
+      ? document.getElementById("otherBranch").value
+      : "",
     section: document.getElementById("section").value,
     year: document.getElementById("year").value,
     whyJoin: document.getElementById("whyJoin").value,
@@ -290,3 +315,4 @@ function showSuccessPage() {
 
 // Init
 showPage(1);
+initBranchToggle();

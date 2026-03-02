@@ -551,6 +551,9 @@ body {
   color: var(--gray-800);
   margin-bottom: 8px;
 }
+.hidden { 
+  display: none; 
+}
 .req {
   color: var(--red);
   font-weight: 700;
