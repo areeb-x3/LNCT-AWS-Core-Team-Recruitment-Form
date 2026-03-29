@@ -286,7 +286,7 @@ function formatRoleValue(value) {
 
 /* ===== SUBMIT ===== */
 // Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_https://script.google.com/macros/s/AKfycbxeb2KNiP28XWSCBSUqwUwapqHx_z9gvPfuLGb87N5t6x8xcjfo2gbCOzIefn6Ra9f5/exec = "https://script.google.com/macros/s/AKfycbxeb2KNiP28XWSCBSUqwUwapqHx_z9gvPfuLGb87N5t6x8xcjfo2gbCOzIefn6Ra9f5/exec";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxeb2KNiP28XWSCBSUqwUwapqHx_z9gvPfuLGb87N5t6x8xcjfo2gbCOzIefn6Ra9f5/exec";
 
 function submitForm() {
   if (!validatePage(4)) return;
@@ -323,7 +323,7 @@ function submitForm() {
   submitBtn.textContent = "Submitting...";
 
   // Send to Google Sheets
-  fetch(GOOGLE_https://script.google.com/macros/s/AKfycbxeb2KNiP28XWSCBSUqwUwapqHx_z9gvPfuLGb87N5t6x8xcjfo2gbCOzIefn6Ra9f5/exec, {
+  fetch(GOOGLE_SHEET_URL, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
