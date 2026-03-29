@@ -106,11 +106,7 @@
       <div class="banner">
         <div class="banner-content">
           <div class="logo-block">
-            <img
-              src="banner.png"
-              alt="AWS Cloud Clubs"
-              class="banner-logo"
-            />
+            <img src="banner.png" alt="AWS Cloud Clubs" class="banner-logo" />
           </div>
         </div>
       </div>
@@ -172,7 +168,9 @@
               />
             </div>
             <div class="field">
-              <label for="phone">Whatsapp Number <span class="req">*</span></label>
+              <label for="phone"
+                >Whatsapp Number <span class="req">*</span></label
+              >
               <input
                 type="tel"
                 id="phone"
@@ -197,12 +195,10 @@
               </select>
             </div>
             <div class="field hidden">
-              <label for="section">Branch Name <span class="req">*</span></label>
-              <input 
-                type="text" 
-                id="otherBranch" 
-                placeholder="Branch name" 
-              />
+              <label for="section"
+                >Branch Name <span class="req">*</span></label
+              >
+              <input type="text" id="otherBranch" placeholder="Branch name" />
             </div>
             <div class="field">
               <label for="college">College <span class="req">*</span></label>
@@ -214,12 +210,10 @@
               </select>
             </div>
             <div class="field">
-              <label for="enrollement">Enrollment Number <span class="req">*</span></label>
-              <input
-                type="text"
-                id="enrollment"
-                placeholder="0103CSYYXXXX"
-              />
+              <label for="enrollement"
+                >Enrollment Number <span class="req">*</span></label
+              >
+              <input type="text" id="enrollment" placeholder="0103CSYYXXXX" />
             </div>
             <div class="field">
               <label for="section">Section <span class="req">*</span></label>
@@ -263,10 +257,58 @@
           <div class="card-divider"></div>
           <div class="card-body">
             <div class="field">
+              <label for="roleSelection"
+                >Which role do you want to apply for?
+                <span class="req">*</span></label
+              >
+
+              <select id="roleSelection" onchange="showRoleDescription(this.value)">
+                <option value="" disabled selected>Please Select</option>
+                <option value="technical-secretary">Technical Secretary</option>
+                <option value="operations-secretary">Operations & Membership Secretary</option>
+                <option value="outreach-lead">Outreach & Public Relations Lead</option>
+                <option value="content-lead">Content & Creative Lead</option>
+                <option value="volunteer">Volunteer</option>
+              </select>
+            </div>
+
+            <!-- Description of each role hidden by default -->
+            <div class="role-description" id="description-technical-secretary">
+              <p>
+                As a <b>Technical Secretary</b>, you're essentially the club's resident architect and problem-solver. Your job is to keep the technical gears turning, whether that's setting up the cloud environments for our workshops, debugging a stubborn deployment, or making sure everyone's IAM permissions aren't a total mess. You're the bridge between high-level AWS concepts and the actual hands-on projects we build together.
+              </p>
+            </div>
+
+            <div class="role-description" id="description-operations-secretary">
+              <p>
+                As an <b>Operations & Membership Secretary</b>, you are the glue that keeps the club from falling into chaos. You'll be managing the "behind-the-scenes" logistics—keeping track of who's in the club, handling meeting schedules, and making sure we actually have a room (or a Zoom link) to meet in. If someone needs to know where the club stands or how to join, they're coming to you.
+              </p>
+            </div>
+
+            <div class="role-description" id="description-outreach-lead">
+              <p>
+                As an <b>Outreach & Public Relations Lead</b>, your main goal is to get people hyped and keep us connected. You'll be the face of the club when it comes to talking to teachers, other tech clubs, or even potential guest speakers from the industry. You're also in charge of making sure everyone on campus knows why cloud computing is the future and why they should be at our next event.
+              </p>
+            </div>
+
+            <div class="role-description" id="description-content-lead">
+              <p>
+                As a <b>Content & Creative Lead</b>, you're the one who makes us look legit. From designing slick Instagram posts and posters to drafting the newsletters that people actually want to read, you handle all the aesthetics and messaging. You take the "tech-heavy" stuff and turn it into something visual and engaging so the club's brand stays top-tier.
+              </p>
+            </div>
+
+            <div class="role-description" id="description-volunteer">
+              <p>
+                As a <b>Volunteer</b>, you are the boots on the ground making sure our events actually go off without a hitch. Whether it's helping newcomers set up their first S3 bucket during a workshop or helping manage the crowd at a big speaker event, you're there to support the leads and keep the energy high. It's the best way to learn the ropes and see how the club operates from the inside.
+              </p>
+            </div>
+
+            <div class="field">
               <label for="whyJoin"
                 >Why do you want to join the AWS Core Team Club?
                 <span class="req">*</span></label
               >
+
               <textarea
                 id="whyJoin"
                 rows="5"
@@ -424,7 +466,9 @@
           <div class="card-body">
             <div class="field">
               <label
-                >Are you willing to attend and participate in AWS Learning Workshops that occur on Saturdays? <span class="req">*</span></label
+                >Are you willing to attend and participate in AWS Learning
+                Workshops that occur on Saturdays?
+                <span class="req">*</span></label
               >
               <div class="radio-group" id="workshopGroup">
                 <label class="radio-item"
@@ -443,7 +487,8 @@
             </div>
             <div class="field">
               <label
-                >In case you are not selected for any Core Team role, would you like to be a volunteer? <span class="req">*</span></label
+                >In case you are not selected for any Core Team role, would you
+                like to be a volunteer? <span class="req">*</span></label
               >
               <div class="radio-group" id="volunteerPrompt">
                 <label class="radio-item"

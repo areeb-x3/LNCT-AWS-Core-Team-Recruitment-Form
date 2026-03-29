@@ -127,9 +127,9 @@ Completely free, no server required.
 - Go to [sheets.google.com](https://sheets.google.com) and create a new spreadsheet.
 - Add these headers in **Row 1**:
 
-| A         | B          | C         | D     | E               | F      | G           | H       | I              | J       | K    | L        | M            | N            | O      | P           | Q          | R        | S                |
-| --------- | ---------- | --------- | ----- | --------------- | ------ | ----------- | ------- | -------------- | ------- | -----| -------- | ------------ | ------------ | ------ | ----------- | ---------- | ---------| -----------------|
-| Timestamp | First Name | Last Name | Gmail | Whatsapp Number | Branch | Branch Name | College | Enrollment No. | Section | Year | Why Join | Improvements | Expectations | Skills | Other Skill | Proof Link | Workshop | Can be Volunteer |
+| A         | B          | C         | D     | E               | F      | G           | H       | I              | J       | K    | L    | M        | N            | O            | P      | Q           | R          | S        | T                |
+| --------- | ---------- | --------- | ----- | --------------- | ------ | ----------- | ------- | -------------- | ------- | -----| -----|--------- | ------------ | ------------ | ------ | ----------- | ---------- | ---------| -----------------|
+| Timestamp | First Name | Last Name | Gmail | Whatsapp Number | Branch | Branch Name | College | Enrollment No. | Section | Year | Role | Why Join | Improvements | Expectations | Skills | Other Skill | Proof Link | Workshop | Can be Volunteer |
 
 ### 3b. Add the Apps Script
 
@@ -153,6 +153,7 @@ function doPost(e) {
     data.enrollment,
     data.section,
     data.year,
+    data.roleSelection,
     data.whyJoin,
     data.improvements,
     data.expectations,

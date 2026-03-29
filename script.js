@@ -93,7 +93,7 @@ function validatePage(page) {
   }
 
   if (page === 2) {
-    ["whyJoin", "improvements", "expectations"].forEach((id) => {
+    ["roleSelection", "whyJoin", "improvements", "expectations"].forEach((id) => {
       const el = document.getElementById(id);
       if (!el.value.trim()) {
         showError(el, "This field is required");
@@ -168,6 +168,19 @@ function initBranchToggle() {
   });
 }
 
+function showRoleDescription(value) {
+  document.querySelectorAll('.role-description').forEach(role => {
+    role.classList.remove('active');
+  });
+  
+  if (value) {
+    console.log("Value: " + value);
+    const target = document.getElementById('description-' + value);
+    console.log("Target: " + target);
+    if (target) target.classList.add('active');
+    console.log("Applied to Target");
+  }
+}
 /* ===== CONFETTI ENGINE ===== */
 function launchConfetti() {
   const canvas = document.createElement("canvas");
@@ -257,6 +270,20 @@ function launchConfetti() {
   }, 400);
 }
 
+/* ===== HELPER FUNCTION ==== */
+// Needed to properly format the role field in the sheet
+function formatRoleValue(value) {
+  const roles = {
+    "technical-secretary": "Technical Secretary",
+    "operations-secretary": "Operations & Membership Secretary",
+    "outreach-lead": "Outreach & Public Relations Lead",
+    "content-lead": "Content & Creative Lead",
+    "volunteer": "Volunteer",
+  };
+
+  return roles[value] || null;
+}
+
 /* ===== SUBMIT ===== */
 // Replace this URL with your Google Apps Script Web App URL
 const GOOGLE_SHEET_URL = "";
@@ -277,6 +304,7 @@ function submitForm() {
     enrollment: document.getElementById("enrollment").value,
     section: document.getElementById("section").value,
     year: document.getElementById("year").value,
+    roleSelection: formatRoleValue(document.getElementById("roleSelection").value),
     whyJoin: document.getElementById("whyJoin").value,
     improvements: document.getElementById("improvements").value,
     expectations: document.getElementById("expectations").value,
