@@ -286,7 +286,7 @@ function formatRoleValue(value) {
 
 /* ===== SUBMIT ===== */
 // Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SHEET_URL = "";
+const GOOGLE_SHEET_URL = "SHEET_URL";
 
 function submitForm() {
   if (!validatePage(4)) return;
