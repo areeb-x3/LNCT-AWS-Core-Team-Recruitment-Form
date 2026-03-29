@@ -12,7 +12,7 @@ jobs:
 
       - name: Inject Secret URL into script.js
         run: |
-          sed -i 's|SHEET_URL|${{ secrets.APPS_SCRIPT_URL }}|g' script.js
+          sed -i 's|PUT_SHEET_URL_HERE|${{ secrets.APPS_SCRIPT_URL }}|g' script.js
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
