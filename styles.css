@@ -1,3 +1,6 @@
+/* ===== FONT FILES ==== */
+@import url('https://fonts.cdnfonts.com/css/amazon-ember');
+
 /* ===== RESET & BASE ===== */
 *,
 *::before,
@@ -39,6 +42,7 @@ html {
 
 body {
   font-family:
+    "Amazon Ember",
     "Inter",
     -apple-system,
     BlinkMacSystemFont,
@@ -393,6 +397,10 @@ body {
   display: block;
   margin: 0 auto;
   object-fit: contain;
+
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* ===== STEP INDICATOR ===== */
@@ -576,6 +584,7 @@ body {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="url"],
 select,
 textarea {
   width: 100%;
@@ -629,6 +638,18 @@ textarea {
   text-align: justify;
 }
 .role-description.active { 
+  display: block; 
+}
+.proof-description { 
+  display: none; 
+  margin-top: 1rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+  text-align: justify;
+}
+.proof-description.active { 
   display: block; 
 }
 /* ===== CHECKBOX & RADIO ===== */
@@ -744,7 +765,7 @@ textarea {
   color: var(--gray-600);
 }
 
-.bonus-note {
+.info-note {
   font-size: 12px;
   color: var(--purple-500);
   font-weight: 600;
@@ -870,7 +891,7 @@ textarea.error:focus {
 .success-card {
   text-align: center;
   padding: 60px 32px;
-  border-radius: var(--radius);
+  border-radius: 0px 0px var(--radius) var(--radius);
   margin-top: 0;
   position: relative;
   overflow: hidden;
@@ -999,6 +1020,60 @@ textarea.error:focus {
   z-index: 9999;
 }
 
+.bottom-margin-15px {
+  margin-bottom: 15px;
+}
+/* ===== LINKS ==== */
+/* Link Button */
+.link-button {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition:
+    background 0.2s,
+}
+
+/* Meetup link button */
+.meetup-link {
+  background: #d63b63;
+}
+.meetup-link:hover {
+  background: #bd2c52;
+}
+/* WhatsApp link button */
+.whatsapp-link {
+  background: #25d366;
+}
+.whatsapp-link:hover {
+  background: #1ebe57;
+}
+/* Linktree link on success page */
+.linktree-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  background: #222222;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.linktree-link:hover {
+  background: #3b3b3b;
+  transform: translateY(-2px);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
   body {
@@ -1024,29 +1099,4 @@ textarea.error:focus {
   .step-bar {
     padding: 14px 20px 16px;
   }
-}
-
-/* WhatsApp link on success page */
-.whatsapp-link {
-  display: inline-block;
-  margin-top: 1.2rem;
-  padding: 0.75rem 1.5rem;
-  background: #25d366;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 1rem;
-  transition:
-    background 0.2s,
-    transform 0.2s;
-}
-.whatsapp-link:hover {
-  background: #1ebe57;
-  transform: translateY(-2px);
-}
-.whatsapp-hint {
-  margin-top: 0.6rem;
-  font-size: 0.9rem;
-  opacity: 0.7;
 }

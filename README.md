@@ -127,9 +127,9 @@ Completely free, no server required.
 - Go to [sheets.google.com](https://sheets.google.com) and create a new spreadsheet.
 - Add these headers in **Row 1**:
 
-| A         | B          | C         | D     | E               | F      | G           | H       | I              | J       | K    | L    | M        | N            | O            | P      | Q           | R          | S        | T                |
-| --------- | ---------- | --------- | ----- | --------------- | ------ | ----------- | ------- | -------------- | ------- | -----| -----|--------- | ------------ | ------------ | ------ | ----------- | ---------- | ---------| -----------------|
-| Timestamp | First Name | Last Name | Gmail | Whatsapp Number | Branch | Branch Name | College | Enrollment No. | Section | Year | Role | Why Join | Improvements | Expectations | Skills | Other Skill | Proof Link | Workshop | Can be Volunteer |
+| A         | B          | C         | D      | E     | F               | G        | H      | I           | J       | K              | L       | M    | N    | O        | P            | Q            | R      | S           | T          | U                | V               | W                |
+| --------- | ---------- | --------- | ------ | ------| --------------- | -------- |------- | ----------- | ------- | -------------- | --------| -----|----- | -------- | ------------ | ------------ | ------ | ----------- | -----------| -----------------| ----------------| ---------------- |
+| Timestamp | First Name | Last Name | Gender | Gmail | Whatsapp Number | LinkedIn | Branch | Branch Name | College | Enrollment No. | Section | Year | Role | Why Join | Improvements | Expectations | Skills | Other Skill | Proof Link | Requested Meetup | Joined Whatsapp | Can be Volunteer |
 
 ### 3b. Add the Apps Script
 
@@ -145,8 +145,10 @@ function doPost(e) {
     new Date(),
     data.firstName,
     data.lastName,
+    data.gender,
     data.gmail,
     data.phone,
+    data.linkedin,
     data.branch,
     data.branchName,
     data.college,
@@ -160,8 +162,9 @@ function doPost(e) {
     Array.isArray(data.skills) ? data.skills.join(", ") : data.skills,
     data.otherSkill,
     data.proofLink,
-    data.workshop,
-    data.volunteer,
+    data.meetup,
+    data.whatsapp,
+    data.volunteer
   ]);
 
   return ContentService.createTextOutput(
