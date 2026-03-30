@@ -335,7 +335,7 @@ function disableContextBanner() {
 
 /* ===== SUBMIT ===== */
 // Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwUuuoapax-V3wcu2HfOJeKZd6NQ-KrC4stANwE99qaQZDL28Q02HwRVpnvZC0c_NBC/exec"; //"PUT_SHEET_URL_HERE";
+const GOOGLE_SHEET_URL = "PUT_SHEET_URL_HERE";
 
 function submitForm() {
   if (!validatePage(4)) return;

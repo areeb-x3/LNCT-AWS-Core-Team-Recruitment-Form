@@ -10,9 +10,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Inject Secret URL into script.js
+      - name: Inject Secret URLs
         run: |
           sed -i 's|PUT_SHEET_URL_HERE|${{ secrets.APPS_SCRIPT_URL }}|g' script.js
+          sed -i 's|PUT_MEETUP_GROUP_URL_HERE|${{ secrets.MEETUP_GROUP_LINK }}|g' index.html
+          sed -i 's|PUT_WHATSAPP_GROUP_URL_HERE|${{ secrets.WHATSAPP_GROUP_LINK }}|g' index.html
+          sed -i 's|PUT_LINKTREE_URL_HERE|${{ secrets.LINKTREE_LINK }}|g' index.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
