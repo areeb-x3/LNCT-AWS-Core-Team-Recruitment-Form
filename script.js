@@ -54,8 +54,10 @@ function validatePage(page) {
     [
       { id: "firstName", msg: "First name is required" },
       { id: "lastName", msg: "Last name is required" },
+      { id: "gender", msg: "Gender is required" },
       { id: "gmail", msg: "Gmail is required" },
       { id: "phone", msg: "Phone number is required" },
+      { id: "linkedin", msg: "LinkedIn is required" },
       { id: "branch", msg: "Please select a branch" },
       { id: "college", msg: "Please select a college" },
       { id: "enrollment", msg: "Enrollment is required" },
@@ -90,16 +92,33 @@ function validatePage(page) {
         valid = false;
       }
     }
+    const linkedin = document.getElementById("linkedin");
+    if (
+      linkedin.value.trim() &&
+      !/^(https?:\/\/)?(www\.)?linkedin\.com\/(in|company|school)\/[\w-]+\/?$/.test(
+        linkedin.value.trim(),
+      )
+    ) {
+      if (!linkedin.classList.contains("error")) {
+        showError(
+          linkedin,
+          "URL format is not valid. [Correct format: htttps://www.linkedin.com/in/your-username/]",
+        );
+        valid = false;
+      }
+    }
   }
 
   if (page === 2) {
-    ["roleSelection", "whyJoin", "improvements", "expectations"].forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) {
-        showError(el, "This field is required");
-        valid = false;
-      }
-    });
+    ["roleSelection", "whyJoin", "improvements", "expectations"].forEach(
+      (id) => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          showError(el, "This field is required");
+          valid = false;
+        }
+      },
+    );
   }
 
   if (page === 3) {
@@ -111,6 +130,10 @@ function validatePage(page) {
       m.className = "error-msg";
       m.textContent = "Please select at least one skill";
       g.parentNode.insertBefore(m, g.nextSibling);
+      valid = false;
+    }
+    if (!document.getElementById("proofLink").value.trim()) {
+      showError(document.getElementById("proofLink"), "This field is required");
       valid = false;
     }
   }
@@ -141,6 +164,13 @@ function validatePage(page) {
       valid = false;
     }
   }
+
+  if (!valid) {
+    document.querySelector(".error").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }
   return valid;
 }
 
@@ -155,30 +185,29 @@ function prevPage(c) {
 }
 
 function initBranchToggle() {
-  const branchSelect = document.getElementById('branch');
-  const otherBranchField = document.getElementById('otherBranch').closest('.field');
+  const branchSelect = document.getElementById("branch");
+  const otherBranchField = document
+    .getElementById("otherBranch")
+    .closest(".field");
 
-  branchSelect.addEventListener('change', function () {
-    if (this.value === 'Other') {
-      otherBranchField.classList.remove('hidden');
+  branchSelect.addEventListener("change", function () {
+    if (this.value === "Other") {
+      otherBranchField.classList.remove("hidden");
     } else {
-      otherBranchField.classList.add('hidden');
-      document.getElementById('otherBranch').value = '';
+      otherBranchField.classList.add("hidden");
+      document.getElementById("otherBranch").value = "";
     }
   });
 }
 
 function showRoleDescription(value) {
-  document.querySelectorAll('.role-description').forEach(role => {
-    role.classList.remove('active');
+  document.querySelectorAll(".role-description").forEach((role) => {
+    role.classList.remove("active");
   });
-  
+
   if (value) {
-    console.log("Value: " + value);
-    const target = document.getElementById('description-' + value);
-    console.log("Target: " + target);
-    if (target) target.classList.add('active');
-    console.log("Applied to Target");
+    const target = document.getElementById("description-" + value);
+    if (target) target.classList.add("active");
   }
 }
 /* ===== CONFETTI ENGINE ===== */
@@ -270,18 +299,24 @@ function launchConfetti() {
   }, 400);
 }
 
-/* ===== HELPER FUNCTION ==== */
+/* ===== OTHER FUNCTIONS ==== */
 // Needed to properly format the role field in the sheet
 function formatRoleValue(value) {
   const roles = {
     "technical-secretary": "Technical Secretary",
-    "operations-secretary": "Operations & Membership Secretary",
     "outreach-lead": "Outreach & Public Relations Lead",
     "content-lead": "Content & Creative Lead",
-    "volunteer": "Volunteer",
   };
 
   return roles[value] || null;
+}
+// Prevent Casual Users to acidentally open context menu for the banner
+function disableContextBanner() {
+  document.querySelectorAll(".banner-logo").forEach((img) => {
+    img.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
+  });
 }
 
 /* ===== SUBMIT ===== */
@@ -297,14 +332,17 @@ function submitForm() {
     gmail: document.getElementById("gmail").value,
     phone: document.getElementById("phone").value,
     branch: document.getElementById("branch").value,
-    branchName: document.getElementById("branch").value === "Other"
-      ? document.getElementById("otherBranch").value
-      : "",
+    branchName:
+      document.getElementById("branch").value === "Other"
+        ? document.getElementById("otherBranch").value
+        : "",
     college: document.getElementById("college").value,
     enrollment: document.getElementById("enrollment").value,
     section: document.getElementById("section").value,
     year: document.getElementById("year").value,
-    roleSelection: formatRoleValue(document.getElementById("roleSelection").value),
+    roleSelection: formatRoleValue(
+      document.getElementById("roleSelection").value,
+    ),
     whyJoin: document.getElementById("whyJoin").value,
     improvements: document.getElementById("improvements").value,
     expectations: document.getElementById("expectations").value,
@@ -357,3 +395,4 @@ function showSuccessPage() {
 // Init
 showPage(1);
 initBranchToggle();
+disableContextBanner();
