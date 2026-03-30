@@ -139,8 +139,16 @@ function validatePage(page) {
   }
 
   if (page === 4) {
-    if (!document.querySelector('input[name="workshop"]:checked')) {
-      const g = document.getElementById("workshopGroup");
+    if (!document.querySelector('input[name="meetup"]:checked')) {
+      const g = document.getElementById("joinedMeetup");
+      const m = document.createElement("div");
+      m.className = "error-msg";
+      m.textContent = "Please select an option";
+      g.parentNode.insertBefore(m, g.nextSibling);
+      valid = false;
+    }
+    if (!document.querySelector('input[name="whatsapp"]:checked')) {
+      const g = document.getElementById("joinedWhatsapp");
       const m = document.createElement("div");
       m.className = "error-msg";
       m.textContent = "Please select an option";
@@ -321,7 +329,7 @@ function disableContextBanner() {
 
 /* ===== SUBMIT ===== */
 // Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SHEET_URL = "PUT_SHEET_URL_HERE";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwUuuoapax-V3wcu2HfOJeKZd6NQ-KrC4stANwE99qaQZDL28Q02HwRVpnvZC0c_NBC/exec"; //"PUT_SHEET_URL_HERE";
 
 function submitForm() {
   if (!validatePage(4)) return;
@@ -329,8 +337,10 @@ function submitForm() {
   const data = {
     firstName: document.getElementById("firstName").value,
     lastName: document.getElementById("lastName").value,
+    gender: document.getElementById("gender").value,
     gmail: document.getElementById("gmail").value,
     phone: document.getElementById("phone").value,
+    linkedin: document.getElementById("linkedin").value,
     branch: document.getElementById("branch").value,
     branchName:
       document.getElementById("branch").value === "Other"
@@ -351,7 +361,8 @@ function submitForm() {
     ),
     otherSkill: document.getElementById("otherSkill").value,
     proofLink: document.getElementById("proofLink").value,
-    workshop: document.querySelector('input[name="workshop"]:checked').value,
+    meetup: document.querySelector('input[name="meetup"]:checked').value,
+    whatsapp: document.querySelector('input[name="whatsapp"]:checked').value,
     volunteer: document.querySelector('input[name="volunteer"]:checked').value,
   };
 
