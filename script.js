@@ -208,14 +208,20 @@ function initBranchToggle() {
   });
 }
 
-function showRoleDescription(value) {
+function showDescriptions(value) {
   document.querySelectorAll(".role-description").forEach((role) => {
+    role.classList.remove("active");
+  });
+  document.querySelectorAll(".proof-description").forEach((role) => {
     role.classList.remove("active");
   });
 
   if (value) {
-    const target = document.getElementById("description-" + value);
-    if (target) target.classList.add("active");
+    const targetDescription = document.getElementById("description-" + value);
+    if (targetDescription) targetDescription.classList.add("active");
+
+    const targetProof = document.getElementById("proof-" + value);
+    if (targetProof) targetProof.classList.add("active");
   }
 }
 /* ===== CONFETTI ENGINE ===== */
@@ -311,7 +317,7 @@ function launchConfetti() {
 // Needed to properly format the role field in the sheet
 function formatRoleValue(value) {
   const roles = {
-    "technical-secretary": "Technical Secretary",
+    "technical-lead": "Technical Lead",
     "outreach-lead": "Outreach & Public Relations Lead",
     "content-lead": "Content & Creative Lead",
   };

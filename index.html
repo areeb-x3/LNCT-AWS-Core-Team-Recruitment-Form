@@ -284,10 +284,10 @@
 
               <select
                 id="roleSelection"
-                onchange="showRoleDescription(this.value)"
+                onchange="showDescriptions(this.value)"
               >
                 <option value="" disabled selected>Please Select</option>
-                <option value="technical-secretary">Technical Secretary</option>
+                <option value="technical-lead">Technical Lead</option>
                 <option value="outreach-lead">
                   Outreach & Public Relations Lead
                 </option>
@@ -296,38 +296,30 @@
             </div>
 
             <!-- Description of each role hidden by default -->
-            <div class="role-description" id="description-technical-secretary">
+            <div class="role-description" id="description-technical-lead">
               <p class="info-note">
-                As a <b>Technical Secretary</b>, you're essentially the club's
-                resident architect and problem-solver. Your job is to keep the
-                technical gears turning, whether that's setting up the cloud
-                environments for our workshops, debugging a stubborn deployment,
-                or making sure everyone's IAM permissions aren't a total mess.
-                You're the bridge between high-level AWS concepts and the actual
-                hands-on projects we build together.
+                As a <b>Technical Lead</b>, you will be responsible for managing cloud environments, 
+                debugging deployments, and handling access permissions 
+                (i.e., determining who can do what within each deployment). 
+                You will bridge high-level AWS concepts with the hands-on projects we build together.
               </p>
             </div>
 
             <div class="role-description" id="description-outreach-lead">
               <p class="info-note">
-                As an <b>Outreach & Public Relations Lead</b>, your main goal is
-                to get people hyped and keep us connected. You'll be the face of
-                the club when it comes to talking to teachers, other tech clubs,
-                or even potential guest speakers from the industry. You're also
-                in charge of making sure everyone on campus knows why cloud
-                computing is the future and why they should be at our next
-                event.
+                As an <b>Outreach & Public Relations Lead</b>, you will be responsible for keeping people 
+                engaged and connected with the club. You will actively connect with teachers, 
+                other tech clubs, and potential guest speakers from the industry. 
+                You will also help build the club's visibility across the campus.
               </p>
             </div>
 
             <div class="role-description" id="description-content-lead">
               <p class="info-note">
-                As a <b>Content & Creative Lead</b>, you're the one who makes us
-                look legit. From designing slick Instagram posts and posters to
-                drafting the newsletters that people actually want to read, you
-                handle all the aesthetics and messaging. You take the
-                "tech-heavy" stuff and turn it into something visual and
-                engaging so the club's brand stays top-tier.
+                As a <b>Content & Creative Lead</b>, you will be responsible for turning technical concepts 
+                into visually engaging posters and content. This includes designing social media posts 
+                and posters, drafting newsletters that people actually want to read, and managing the club's 
+                overall aesthetics and messaging.
               </p>
             </div>
 
@@ -466,11 +458,23 @@
                 >Proof of Your Skill :) <span class="req">*</span></label
               >
               <input type="text" id="proofLink" placeholder="Links for Proof" />
-              <p class="info-note">
-                BONUS – If You Have Organised any Events or Made any Projects
-                Related to the Above Mentioned Skill, Add that Link Here!
-                (LinkedIn/GitHub/Any Other Links Accepted)
-              </p>
+              
+              <!-- Proof Description for each role hidden by default -->
+              <div class="proof-description" id="proof-technical-lead">
+                <p class="info-note">
+                  BONUS – You can share links related to your above mentioned skills, this also includes your Github, Leetcode etc showing your contributions for a capable Technical Lead!
+                </p>
+              </div>
+              <div class="proof-description" id="proof-outreach-lead">
+                <p class="info-note">
+                  BONUS – You can share links related to your above mentioned skills, this also includes events that you organised and collaborations showing how capable you are to be an Outreach & Public Relations Lead!  
+                </p>
+              </div>
+              <div class="proof-description" id="proof-content-lead">
+                <p class="info-note">
+                  BONUS – You can share links related to your above mentioned skills, this also includes various posts/posters you designed for events and showing how capable you are to be a Content & Creative Lead! (Google Drive/Instagram/LinkedIn links)
+                </p>
+              </div>
             </div>
           </div>
         </div>

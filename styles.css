@@ -640,6 +640,18 @@ textarea {
 .role-description.active { 
   display: block; 
 }
+.proof-description { 
+  display: none; 
+  margin-top: 1rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+  text-align: justify;
+}
+.proof-description.active { 
+  display: block; 
+}
 /* ===== CHECKBOX & RADIO ===== */
 .checkbox-grid {
   display: flex;
