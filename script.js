@@ -318,6 +318,7 @@ function launchConfetti() {
 function formatRoleValue(value) {
   const roles = {
     "technical-lead": "Technical Lead",
+    "membership-lead" : "Operations & Membership Lead",
     "outreach-lead": "Outreach & Public Relations Lead",
     "content-lead": "Content & Creative Lead",
   };
