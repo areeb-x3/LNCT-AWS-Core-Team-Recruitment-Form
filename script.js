@@ -1,3 +1,9 @@
+const REGISTRATIONS_CLOSED = true;
+
+if (REGISTRATIONS_CLOSED) {
+  window.location.replace("thankyou.html");
+}
+
 const totalPages = 4;
 let currentPage = 1;
 
@@ -339,6 +345,10 @@ function disableContextBanner() {
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbw7Wxv0MHkjJKXte8TwcR_LkXsDRsR27YJmUX-hu3mQZTsXQpDOHf8IYjfwjvqYgfky/exec";
 
 function submitForm() {
+  if (REGISTRATIONS_CLOSED) {
+    alert("Registrations are closed.");
+    return;
+  }
   if (!validatePage(4)) return;
 
   const data = {
