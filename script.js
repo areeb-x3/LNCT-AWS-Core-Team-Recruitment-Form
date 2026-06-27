@@ -1,3 +1,9 @@
+const REGISTRATIONS_CLOSED = true;
+
+if (REGISTRATIONS_CLOSED) {
+  window.location.replace("thankyou.html");
+}
+
 const totalPages = 4;
 let currentPage = 1;
 
@@ -339,6 +345,10 @@ function disableContextBanner() {
 const GOOGLE_SHEET_URL = "PUT_SHEET_URL_HERE";
 
 function submitForm() {
+  if (REGISTRATIONS_CLOSED) {
+    alert("Registrations are closed.");
+    return;
+  }
   if (!validatePage(4)) return;
 
   const data = {
